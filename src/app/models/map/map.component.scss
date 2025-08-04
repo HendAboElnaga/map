@@ -1,0 +1,26 @@
+// .maps .ol-viewport,
+// .maps .ol-layer {
+//   border-radius: 20px;
+// }
+
+
+#map,.maps {
+  position: relative; /* Ensure the map is positioned so the tooltip can be layered on top */
+  z-index: 0; /* Make sure the map layers are below the tooltip */
+}
+
+.tooltip {
+  position: absolute;
+  background-color: rgba(54, 107, 77, 0.7);  /* Tooltip background color */
+  border: 1px solid rgb(119 30 30);        /* Tooltip border */
+  padding: 5px;
+  display: none; /* Tooltip hidden by default */
+  pointer-events: none; /* Prevent the tooltip from interfering with map interactions */
+  color: black; /* Set text color to black */
+  font-size: 14px;  /* Optional: font size */
+  border-radius: 3px; /* Optional: rounded corners */
+  z-index: 9999; /* Set a high z-index to ensure tooltip appears on top of the map */
+}
+
+
+
