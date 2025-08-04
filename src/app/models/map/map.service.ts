@@ -10,8 +10,6 @@ const url: string = env.apiUrl + "/Lookup";
 @Injectable({providedIn: 'root', // Ensures a single instance of the service
   })
 export class MapService {
-  invokeFirstComponentFunction = new EventEmitter();
-
   /**
    * Constructor
    *

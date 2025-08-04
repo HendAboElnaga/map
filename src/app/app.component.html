@@ -1,29 +1,27 @@
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back to School Dashboard</title>
-    <!-- <link rel="stylesheet" href="../assets/styles/style.scss"> -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
-
 <body>
-     <div class="navbar-container">
-  <nav class="navbar">
-    <div class="navbar-left">
-      <img src="../assets/images/stc.png" alt="STC" class="navbar-stc">
-      <img src="../assets/images/logo.png" alt="Logo" class="navbar-logo">
+    <!-- Navigation Bar -->
+    <div class="navbar-container">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <img src="../assets/images/stc.png" alt="STC" class="navbar-stc">
+                <img src="../assets/images/logo.png" alt="Logo" class="navbar-logo">
+            </div>
+            <div class="navbar-center">
+                <img src="../assets/images/robot.png" alt="Robot" class="navbar-robot">
+                <div class="navbar-title">Back to School Dashboard</div>
+            </div>
+        </nav>
     </div>
-    <div class="navbar-center">
-      <img src="../assets/images/robot.png" alt="Robot" class="navbar-robot">
-      <div class="navbar-title">Back to School Dashboard</div>
-    </div>
-  </nav>
-</div>
-
-
 
     <div class="dashboard">
         <!-- LEFT SIDE (65%) -->
@@ -31,7 +29,7 @@
             <!-- Chart container -->
             <div class="chart-container">
                 <div class="chart-wrapper">
-                    <!-- Dropdown control -->
+                     <!-- Dropdown control -->
                     <div class="dropdown" [class.show]="dropdownOpen" #dropdown>
                         <button class="dropbtn" (click)="toggleDropdown($event)">Select Datasets ▾</button>
                         
@@ -46,71 +44,61 @@
                     </div>
                     <canvas id="trendChart"></canvas>
                 </div>
-                <div class="ai-trend-box">
-                    <img src="../assets/images/robot.png" alt="AI Bot" class="bot-icon-trend" />
-                    <div class="trend-header">
-                        <span class="trend-title">AI Insights</span>
+            </div>
+
+            <div class="metrics-journey-box">
+                <!-- LEFT COLUMN -->
+                <div class="left-column">
+                    <!-- Metrics -->
+                    <div class="metrics-main-container">
+                        <div class="metrics-layout">
+                            <div class="metric-box reactive" id="Reactive_TTs">
+                                <div class="metric-title">Reactive TTs</div>
+                                <div class="metric-value" id="reactive-tt-value">0</div>
+                                <div class="reactive-inner-row">
+                                    <div class="metric-box ftth" id="FTTH">
+                                        <div class="metric-title">FTTH</div>
+                                        <div class="metric-value" id="ftth-value">0</div>
+                                        <div class="logical-physical-row">
+                                            <div class="metric-box" id="Logical">
+                                                <div class="metric-title">Logical</div>
+                                                <div class="metric-value" id="logical-value">0</div>
+                                            </div>
+                                            <div class="metric-box" id="Physical">
+                                                <div class="metric-title">Physical</div>
+                                                <div class="metric-value" id="physical-value">0</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="metric-box small" id="Copper">
+                                        <div class="metric-title">Copper</div>
+                                        <div class="metric-value" id="copper-value">0</div>
+                                    </div>
+                                    <div class="metric-box small" id="OLO">
+                                        <div class="metric-title">OLO</div>
+                                        <div class="metric-value" id="olo-value">0</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="trend-body">
-                        <p class="trend-text">Analyzing...</p>
+
+                    <!-- AI Insights -->
+                    <div class="ai-insights-wrapper">
+                        <img src="../assets/images/robot.png" alt="AI Bot" class="bot-icon" />
+                        <div class="ai-insights">
+                            <div class="ai-header"><span class="ai-title">AI Insights</span></div>
+                            <div class="ai-body"><p class="ai-subtitle">Analyzing...</p></div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- RIGHT COLUMN (Journey) -->
+                <div class="journey-container">
+                    <svg id="journey-svg"></svg>
+                    <div id="journey-nodes"></div>
+                </div>
             </div>
-
-
-
-
-         
-<div class="metrics-journey-box">
-  <div class="top-row">
-    
-    <!-- LEFT: Journey -->
-    <div class="journey-container">
-      <svg id="journey-svg"></svg>
-      <div id="journey-nodes"></div>
-    </div>
-
-    <!-- RIGHT: Metrics Card + AI Insights -->
-    <div class="right-column">
-      <div class="wow-metrics-card-sm">
-        <div class="wow-header-sm">
-          <div class="wow-title-sm">Reactive TTs</div>
-          <div class="wow-reactive-value-sm">1984</div>
-        </div>
-        <div class="wow-grid-sm">
-          <div class="wow-box-sm ftth-box-sm">
-            <div class="wow-label-sm">FTTH</div>
-            <div class="wow-value-sm">1190</div>
-            <div class="wow-submetrics-sm">
-              <div class="wow-submetric-sm"><span>Logical</span><strong>416</strong></div>
-              <div class="wow-submetric-sm"><span>Physical</span><strong>773</strong></div>
-            </div>
-          </div>
-          <div class="wow-box-sm">
-            <div class="wow-label-sm">OLO</div>
-            <div class="wow-value-sm">595</div>
-          </div>
-          <div class="wow-box-sm">
-            <div class="wow-label-sm">Copper</div>
-            <div class="wow-value-sm">198</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ai-insights">
-        <img src="../assets/images/robot.png" alt="AI Bot" class="bot-icon-trend" />
-        <div class="ai-header">
-          <span class="ai-title">AI Insights</span>
-        </div>
-        <div class="ai-body">
-          <p class="ai-subtitle">Analyzing...</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
 
             <div class="proactive-container">
                 <div class="proactive-chart">
@@ -129,7 +117,7 @@
                         <span class="summary-label">Restored before 10 August</span>
                         <span class="summary-value green" id="restoredBefore">0</span>
                     </div>
-                    <div class="summary-box impacted">
+                  <div class="summary-box impacted">
                         <span class="summary-label">Impacted after 10 August</span>
                         <span class="summary-value red" id="impactedAfter">0</span>
                     </div>
@@ -141,35 +129,17 @@
             </div>
 
             <div class="apps-status-container" id="appsContainer"></div>
-
-            <div class="e2e-path-wrapper">
-                <svg id="e2eLinks"></svg>
-                <div class="e2e-path-container" id="e2ePath">
-                    <div class="e2e-node" id="IGW">
-                        <i class="fas fa-cloud"></i>
-                        <span>IGW</span>
-                    </div>
-                    <div class="e2e-node" id="BRAS">
-                        <i class="fas fa-network-wired"></i>
-                        <span>BRAS</span>
-                    </div>
-                    <div class="e2e-node" id="MPLS">
-                        <i class="fas fa-project-diagram"></i>
-                        <span>MPLS</span>
-                    </div>
-                    <div class="e2e-node" id="OLT">
-                        <i class="fas fa-server"></i>
-                        <span>OLT</span>
-                    </div>
-                    <div class="e2e-node" id="NNI">
-                        <i class="fas fa-exchange-alt"></i>
-                        <span>NNI</span>
-                    </div>
-                </div>
-            </div>
         </div>
 
-    <div class="right-section">
+        <!-- RIGHT SIDE (35%) -->
+        <div class="right-column">
+        <!-- <div class="right-container">
+
+        </div> -->
+
+
+        <!--map-->
+
   <div class="right-container">
     <div class="maturity-header">
       <h1>FTTH Maturity Index</h1>
@@ -181,8 +151,8 @@
   <div class="maturity-header">
     <h1>Top Worst 5 FDTs</h1>
   </div>
-  <div class="fdt-list">
-    <div class="fdt-item">
+  <!-- <div class="fdt-list">
+    <div class="fdt-item" *ngFor="let fdt of fdts">
       <span class="fdt-name">FDT_RYD1000000</span>
       <span class="fdt-percentage">50%</span>
     </div>
@@ -202,13 +172,54 @@
       <span class="fdt-name">FDT_ABH5000004</span>
       <span class="fdt-percentage">35%</span>
     </div>
+  </div> -->
+
+  <div class="fdt-list">
+  <div class="fdt-item" *ngFor="let fdt of fdtList">
+    <span class="fdt-name">{{ fdt.name }}</span>
+    <span class="fdt-percentage">{{ fdt.percentage }}</span>
   </div>
 </div>
 
+
 </div>
 
 
 
-    </div>
+        <!-- end of map -->
 
+
+
+        <!-- E2E PATH BELOW RIGHT CONTAINER -->
+        <div class="e2e-path-wrapper">
+            <svg id="e2eLinks"></svg>
+            <div class="e2e-path-container" id="e2ePath">
+                <div class="e2e-node" id="IGW">
+                    <i class="fas fa-cloud"></i>
+                    <span>IGW</span>
+                </div>
+                <div class="e2e-node" id="BRAS">
+                    <i class="fas fa-network-wired"></i>
+                    <span>BRAS</span>
+                </div>
+                <div class="e2e-node" id="MPLS">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>MPLS</span>
+                </div>
+                <div class="e2e-node" id="OLT">
+                    <i class="fas fa-server"></i>
+                    <span>OLT</span>
+                </div>
+                <div class="e2e-node" id="NNI">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>NNI</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+</html>
+
+

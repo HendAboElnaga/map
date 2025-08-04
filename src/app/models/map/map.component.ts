@@ -39,7 +39,11 @@ export class MapComponent implements OnInit, OnDestroy {
     { district: "Riyadh", fdtPI: 30, tbPI: 50, region: "Northern" },
   ];
 
+
+
+
     private map: any;
+    public status: string='live';
     private vectorSource!: Vector;
     private vectorLayer!: VectorLayer;
     private markersLayer!: VectorLayer;
