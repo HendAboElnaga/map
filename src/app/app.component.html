@@ -28,11 +28,14 @@
         <div class="dashboard-left">
             <!-- Chart container -->
             <div class="chart-container">
+                
                 <div class="chart-wrapper">
-                     <!-- Dropdown control -->
-                    <div class="dropdown" [class.show]="dropdownOpen" #dropdown>
-                        <button class="dropbtn" (click)="toggleDropdown($event)">Select Datasets ▾</button>
-                        
+                    <div class="card-title">Daily Reactive Complaints AI Forecast</div>
+                     <!-- <div class="maturity-header">
+    <h1>Daily Reactive Complaints AI Forecast</h1>
+  </div> -->
+                    <!-- <div class="dropdown">
+                        <button class="dropbtn"></button>
                         <div class="dropdown-content">
                             <label><input type="checkbox" class="dataset-toggle" value="2022" checked> 2022</label>
                             <label><input type="checkbox" class="dataset-toggle" value="2023" checked> 2023</label>
@@ -41,14 +44,19 @@
                             <label><input type="checkbox" class="dataset-toggle" value="2025 Prediction" checked> 2025 Prediction</label>
                             <label><input type="checkbox" class="dataset-toggle" value="2025 Average" checked> 2025 Average</label>
                         </div>
-                    </div>
+                    </div> -->
                     <canvas id="trendChart"></canvas>
                 </div>
             </div>
 
             <div class="metrics-journey-box">
+                
                 <!-- LEFT COLUMN -->
                 <div class="left-column">
+                    <div class="card-title">Customer Journey AI Analysis</div>
+                             <!-- <div class="maturity-header">
+    <h1>Customer Journey AI Analysis</h1>
+  </div> -->
                     <!-- Metrics -->
                     <div class="metrics-main-container">
                         <div class="metrics-layout">
@@ -81,6 +89,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
 
                     <!-- AI Insights -->
@@ -100,35 +109,7 @@
                 </div>
             </div>
 
-            <div class="proactive-container">
-                <div class="proactive-chart">
-                    <canvas id="proactiveChart"></canvas>
-                </div>
-                <div class="proactive-summary">
-                    <div class="summary-box total">
-                        <span class="summary-label">Total Impacted Customers</span>
-                        <span class="summary-value default" id="totalImpacted">0</span>
-                    </div>
-                    <div class="summary-box impacted">
-                        <span class="summary-label">Impacted before 10 August</span>
-                        <span class="summary-value red" id="impactedBefore">0</span>
-                    </div>
-                    <div class="summary-box restored">
-                        <span class="summary-label">Restored before 10 August</span>
-                        <span class="summary-value green" id="restoredBefore">0</span>
-                    </div>
-                  <div class="summary-box impacted">
-                        <span class="summary-label">Impacted after 10 August</span>
-                        <span class="summary-value red" id="impactedAfter">0</span>
-                    </div>
-                    <div class="summary-box restored">
-                        <span class="summary-label">Restored after 10 August</span>
-                        <span class="summary-value green" id="restoredAfter">0</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="apps-status-container" id="appsContainer"></div>
+         
         </div>
 
         <!-- RIGHT SIDE (35%) -->
@@ -216,9 +197,10 @@
                 </div>
             </div>
         </div>
+         <div class="apps-status-container" id="appsContainer"></div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
 
