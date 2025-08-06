@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Back to School Dashboard</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <script src="../../libs/chart.js"></script>
+    <link rel="stylesheet" href="../../libs/fontawesome/all.min.css"> -->
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -14,7 +12,7 @@
         <nav class="navbar">
             <div class="navbar-left">
                 <img src="../assets/images/stc.png" alt="STC" class="navbar-stc">
-                <img src="../assets/images/logo.png" alt="Logo" class="navbar-logo">
+                <img src="../assets/images/robot.png" alt="Logo" class="navbar-logo">
             </div>
             <div class="navbar-center">
                 <img src="../assets/images/robot.png" alt="Robot" class="navbar-robot">
@@ -31,11 +29,8 @@
                 
                 <div class="chart-wrapper">
                     <div class="card-title">Daily Reactive Complaints AI Forecast</div>
-                     <!-- <div class="maturity-header">
-    <h1>Daily Reactive Complaints AI Forecast</h1>
-  </div> -->
-                    <!-- <div class="dropdown">
-                        <button class="dropbtn"></button>
+                    <div class="dropdown">
+                        <button class="dropbtn">Select Datasets <i class="fas fa-chevron-down"></i></button>
                         <div class="dropdown-content">
                             <label><input type="checkbox" class="dataset-toggle" value="2022" checked> 2022</label>
                             <label><input type="checkbox" class="dataset-toggle" value="2023" checked> 2023</label>
@@ -44,7 +39,7 @@
                             <label><input type="checkbox" class="dataset-toggle" value="2025 Prediction" checked> 2025 Prediction</label>
                             <label><input type="checkbox" class="dataset-toggle" value="2025 Average" checked> 2025 Average</label>
                         </div>
-                    </div> -->
+                    </div>
                     <canvas id="trendChart"></canvas>
                 </div>
             </div>
@@ -54,9 +49,6 @@
                 <!-- LEFT COLUMN -->
                 <div class="left-column">
                     <div class="card-title">Customer Journey AI Analysis</div>
-                             <!-- <div class="maturity-header">
-    <h1>Customer Journey AI Analysis</h1>
-  </div> -->
                     <!-- Metrics -->
                     <div class="metrics-main-container">
                         <div class="metrics-layout">
@@ -109,19 +101,38 @@
                 </div>
             </div>
 
-         
+            <!-- <div class="proactive-container">
+                <div class="proactive-chart">
+                    <canvas id="proactiveChart"></canvas>
+                </div>
+                <div class="proactive-summary">
+                    <div class="summary-box total">
+                        <span class="summary-label">Total Impacted Customers</span>
+                        <span class="summary-value default" id="totalImpacted">0</span>
+                    </div>
+                    <div class="summary-box impacted">
+                        <span class="summary-label">Impacted before 10 August</span>
+                        <span class="summary-value red" id="impactedBefore">0</span>
+                    </div>
+                    <div class="summary-box restored">
+                        <span class="summary-label">Restored before 10 August</span>
+                        <span class="summary-value green" id="restoredBefore">0</span>
+                    </div>
+                  <div class="summary-box impacted">
+                        <span class="summary-label">Impacted after 10 August</span>
+                        <span class="summary-value red" id="impactedAfter">0</span>
+                    </div>
+                    <div class="summary-box restored">
+                        <span class="summary-label">Restored after 10 August</span>
+                        <span class="summary-value green" id="restoredAfter">0</span>
+                    </div>
+                </div>
+            </div> -->
         </div>
 
         <!-- RIGHT SIDE (35%) -->
         <div class="right-column">
-        <!-- <div class="right-container">
-
-        </div> -->
-
-
-        <!--map-->
-
-  <div class="right-container">
+        <div class="right-container">
     <div class="maturity-header">
       <h1>FTTH Maturity Index</h1>
     </div>
@@ -166,42 +177,37 @@
 </div>
 
 
+            <div class="e2e-path-wrapper">
+                <div class="e2e-title">Network E2E Logical Events</div>
+                <div class="e2e-content">
+                    <svg id="e2eLinks"></svg>
+                    <div class="e2e-path-container" id="e2ePath">
+                    <div class="e2e-node" id="IGW">
+                        <i class="fas fa-cloud"></i>
+                        <span>IGW</span>
+                    </div>
+                    <div class="e2e-node" id="BRAS">
+                        <i class="fas fa-network-wired"></i>
+                        <span>BRAS</span>
+                    </div>
+                    <div class="e2e-node" id="MPLS">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>MPLS</span>
+                    </div>
+                    <div class="e2e-node" id="OLT">
+                        <i class="fas fa-server"></i>
+                        <span>OLT</span>
+                    </div>
+                    <div class="e2e-node" id="NNI">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>NNI</span>
+                    </div>
+                    </div>
+                </div>
+                </div>
 
-        <!-- end of map -->
 
-
-
-        <!-- E2E PATH BELOW RIGHT CONTAINER -->
-        <div class="e2e-path-wrapper">
-            <svg id="e2eLinks"></svg>
-            <div class="e2e-path-container" id="e2ePath">
-                <div class="e2e-node" id="IGW">
-                    <i class="fas fa-cloud"></i>
-                    <span>IGW</span>
-                </div>
-                <div class="e2e-node" id="BRAS">
-                    <i class="fas fa-network-wired"></i>
-                    <span>BRAS</span>
-                </div>
-                <div class="e2e-node" id="MPLS">
-                    <i class="fas fa-project-diagram"></i>
-                    <span>MPLS</span>
-                </div>
-                <div class="e2e-node" id="OLT">
-                    <i class="fas fa-server"></i>
-                    <span>OLT</span>
-                </div>
-                <div class="e2e-node" id="NNI">
-                    <i class="fas fa-exchange-alt"></i>
-                    <span>NNI</span>
-                </div>
-            </div>
-        </div>
-         <div class="apps-status-container" id="appsContainer"></div>
-        </div>
-    </div>
+        <div class="apps-status-container" id="appsContainer"></div>
+        </div></div>
     <!-- <script src="script.js"></script> -->
 </body>
-</html>
-
-

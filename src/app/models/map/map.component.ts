@@ -16,6 +16,7 @@ import * as olProj from 'ol/proj';
 import { Subject } from "rxjs";
 import MapBrowserEvent from 'ol/MapBrowserEvent';
 import { MapService } from "./map.service";
+import { top_district_data } from "./ResponseVM";
 
 @Component({
   selector: 'app-map',
@@ -26,6 +27,7 @@ import { MapService } from "./map.service";
 export class MapComponent implements OnInit, OnDestroy {
 
 
+  topdistricts: top_district_data[] = [];
   items = [
     { district: "Riyadh", fdtPI: 30, tbPI: 50, region: "Northern" },
     { district: "Riyadh", fdtPI: 30, tbPI: 50, region: "Northern" },
@@ -85,8 +87,8 @@ export class MapComponent implements OnInit, OnDestroy {
 
     const tileLayer = new TileLayer({
       source: new XYZ({
-        // url: 'http://10.23.68.138:5000/tiles/osm_bright/{z}/{x}/{y}.png', // Path to your local tiles
-        url: 'http://localhost:5000/tiles/osm_bright/{z}/{x}/{y}.png', // Path to your local tiles
+        url: 'http://10.23.68.138:5000/tiles/osm_bright/{z}/{x}/{y}.png', // Path to your local tiles
+        // url: 'http://localhost:5000/tiles/osm_bright/{z}/{x}/{y}.png', // Path to your local tiles
         //http://localhost:5000/
 
       })
@@ -138,28 +140,28 @@ export class MapComponent implements OnInit, OnDestroy {
       { name: 'YANBU', coordinates: [38.0532, 24.0889], region: 'Western', color: '#35a164' }
     ];
 
-    // this._mapService.GetTopDistrictsData(this.status).subscribe(res => {
-    //   this.topdistricts = res.Data;
-    //   // this.alldistricts=res.Data;
-    //   for (let i = 0; i < this.topdistricts.length; i++) {
-    //     var district = districts.filter(x => x.name == this.topdistricts[i].district)[0];
-    //     if (district != null) {
-    //       if ((this.status=='live' && this.topdistricts[i].fdt_pi >= 95) ||(this.status=='history' && this.topdistricts[i].fdt_pi >= 85)) {
-    //         districts.filter(x => x.name == this.topdistricts[i].district)[0].color = '#35a164';
-    //       }
-    //       else if ((this.status=='live' && this.topdistricts[i].fdt_pi <95 && this.topdistricts[i].fdt_pi >= 85) || (this.status=='history' && this.topdistricts[i].fdt_pi <85 && this.topdistricts[i].fdt_pi >= 70)) {
-    //         districts.filter(x => x.name == this.topdistricts[i].district)[0].color = '#3d348b';
-    //       }
-    //       else {
-    //         districts.filter(x => x.name == this.topdistricts[i].district)[0].color = 'red';
+    this._mapService.GetTopDistrictsData(this.status).subscribe(res => {
+      this.topdistricts = res.Data;
+      // this.alldistricts=res.Data;
+      for (let i = 0; i < this.topdistricts.length; i++) {
+        var district = districts.filter(x => x.name == this.topdistricts[i].district)[0];
+        if (district != null) {
+          if ((this.status=='live' && this.topdistricts[i].fdt_pi >= 95) ||(this.status=='history' && this.topdistricts[i].fdt_pi >= 85)) {
+            districts.filter(x => x.name == this.topdistricts[i].district)[0].color = '#35a164';
+          }
+          else if ((this.status=='live' && this.topdistricts[i].fdt_pi <95 && this.topdistricts[i].fdt_pi >= 85) || (this.status=='history' && this.topdistricts[i].fdt_pi <85 && this.topdistricts[i].fdt_pi >= 70)) {
+            districts.filter(x => x.name == this.topdistricts[i].district)[0].color = '#3d348b';
+          }
+          else {
+            districts.filter(x => x.name == this.topdistricts[i].district)[0].color = 'red';
 
-    //       }
-    //     }
+          }
+        }
 
 
-    //   }
-    //   this.addCityMarkers(districts);
-    // });
+      }
+      this.addCityMarkers(districts);
+    });
 
 
     this.map.on('moveend', () => {

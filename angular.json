@@ -32,10 +32,13 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/styles/style.scss"
+              "src/assets/styles/style.scss",
+              "src/libs/fontawesome/all.min.css"
+
             ],
             "scripts": [
-              "src/assets/scripts/script.js"
+              "src/assets/scripts/script.js",
+              "src/libs/chart.js"
             ]
           },
           "configurations": {
